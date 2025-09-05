@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Visualization - NeuroNix</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="brand">
+                    <i class="fas fa-fire-flame-curved"></i>
+                    NeuroNix
+                </div>
+                <div class="sidebar-tagline">Forest Fire Intelligence Platform</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Core Features</div>
+                <a href="index.html" class="sidebar-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="risk-analysis.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Risk Assessment</span>
+                </a>
+                <a href="simulation.html" class="sidebar-nav-link">
+                    <i class="fas fa-fire"></i>
+                    <span>Fire Simulation</span>
+                </a>
+                <a href="optimization.html" class="sidebar-nav-link">
+                    <i class="fas fa-route"></i>
+                    <span>Resource Planning</span>
+                </a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Monitoring & Analysis</div>
+                <a href="monitoring.html" class="sidebar-nav-link">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span>Live Monitoring</span>
+                </a>
+                <a href="visualization.html" class="sidebar-nav-link active">
+                    <i class="fas fa-cube"></i>
+                    <span>3D Visualization</span>
+                </a>
+                <a href="analytics.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Data Analytics</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Professional Fixed Header -->
+    <header class="fixed-header">
+        <div class="header-container">
+            <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-controls">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search alerts, regions, data...">
+                </div>
+                <div class="header-status">
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">System Online</span>
+                    </div>
+                    <div class="last-update">
+                        <i class="fas fa-sync-alt"></i>
+                        <span id="header-update-time">2 min ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3D Visualization Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2>3D Fire Behavior Visualization</h2>
+            <p>Immersive 3D visualization of fire spread patterns and environmental conditions</p>
+        </div>
+
+        <div class="feature-navigation">
+            <h3>Visualization Tools</h3>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>3D Terrain Model</h4>
+                        <p>Interactive 3D terrain visualization with elevation data</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Fire Spread Animation</h4>
+                        <p>Real-time 3D fire spread simulation and animation</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Wind Flow Patterns</h4>
+                        <p>3D wind flow visualization and impact analysis</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Virtual Reality Mode</h4>
+                        <p>Immersive VR experience for detailed fire analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="environmental-impact-layout">
+            <div class="carbon-emissions-panel">
+                <div class="panel-header">
+                    <h3>3D Scene Controls</h3>
+                    <div class="emission-status">
+                        <span class="status-dot active"></span>
+                        <span>Scene Loaded</span>
+                    </div>
+                </div>
+                <div class="emissions-summary">
+                    <div class="emission-metric">
+                        <div class="metric-icon">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                        <div class="metric-info">
+                            <span class="metric-value">Full Screen</span>
+                            <span class="metric-label">View Mode</span>
+                        </div>
+                    </div>
+                    <div class="emission-metric">
+                        <div class="metric-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="metric-info">
+                            <span class="metric-value">4 Layers</span>
+                            <span class="metric-label">Data Layers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="environmental-impact-panel">
+                <div class="panel-header">
+                    <h3>Visualization Settings</h3>
+                    <p>Configure 3D scene parameters and display options</p>
+                </div>
+                <div class="impact-categories">
+                    <div class="impact-category">
+                        <div class="category-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="category-info">
+                            <span class="category-name">Terrain Detail</span>
+                            <span class="category-value">High Resolution</span>
+                            <span class="category-impact">10m elevation data</span>
+                        </div>
+                    </div>
+                    <div class="impact-category">
+                        <div class="category-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="category-info">
+                            <span class="category-name">Vegetation Layer</span>
+                            <span class="category-value">Active</span>
+                            <span class="category-impact">Real-time fuel mapping</span>
+                        </div>
+                    </div>
+                    <div class="impact-category">
+                        <div class="category-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="category-info">
+                            <span class="category-name">Heat Visualization</span>
+                            <span class="category-value">Enabled</span>
+                            <span class="category-impact">Temperature gradient display</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-generation">
+            <div class="panel-header">
+                <h3>3D Visualization Actions</h3>
+                <p>Control and configure the 3D visualization environment</p>
+            </div>
+            <div class="report-options">
+                <button class="action-btn primary">
+                    <i class="fas fa-play"></i>
+                    Start 3D View
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-vr-cardboard"></i>
+                    VR Mode
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-camera"></i>
+                    Capture View
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

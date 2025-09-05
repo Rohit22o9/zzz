@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Monitoring - NeuroNix</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="brand">
+                    <i class="fas fa-fire-flame-curved"></i>
+                    NeuroNix
+                </div>
+                <div class="sidebar-tagline">Forest Fire Intelligence Platform</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Core Features</div>
+                <a href="index.html" class="sidebar-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="risk-analysis.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Risk Assessment</span>
+                </a>
+                <a href="simulation.html" class="sidebar-nav-link">
+                    <i class="fas fa-fire"></i>
+                    <span>Fire Simulation</span>
+                </a>
+                <a href="optimization.html" class="sidebar-nav-link">
+                    <i class="fas fa-route"></i>
+                    <span>Resource Planning</span>
+                </a>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Monitoring & Analysis</div>
+                <a href="monitoring.html" class="sidebar-nav-link active">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span>Live Monitoring</span>
+                </a>
+                <a href="visualization.html" class="sidebar-nav-link">
+                    <i class="fas fa-cube"></i>
+                    <span>3D Visualization</span>
+                </a>
+                <a href="analytics.html" class="sidebar-nav-link">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Data Analytics</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Professional Fixed Header -->
+    <header class="fixed-header">
+        <div class="header-container">
+            <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-controls">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search alerts, regions, data...">
+                </div>
+                <div class="header-status">
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span class="status-text">System Online</span>
+                    </div>
+                    <div class="last-update">
+                        <i class="fas fa-sync-alt"></i>
+                        <span id="header-update-time">2 min ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Live Monitoring Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Live Monitoring & Alerts</h2>
+            <p>Real-time environmental tracking and automated alert system</p>
+        </div>
+
+        <div class="feature-navigation">
+            <h3>Monitoring Systems</h3>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Satellite Monitoring</h4>
+                        <p>Real-time satellite imagery and hotspot detection</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Weather Stations</h4>
+                        <p>Live weather data from distributed sensor network</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Alert System</h4>
+                        <p>Automated alerts and emergency notifications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-main-content">
+            <!-- Live Activity Feed -->
+            <div class="activity-feed-section">
+                <div class="section-title">
+                    <h3>Live Sensor Data</h3>
+                    <div class="live-indicator">
+                        <span class="status-dot active"></span>
+                        <span>Live Updates</span>
+                    </div>
+                </div>
+                <div class="activity-feed">
+                    <div class="activity-item new">
+                        <div class="activity-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Temperature Alert</div>
+                            <div class="activity-description">High temperature detected: 34°C in Nainital region</div>
+                            <div class="activity-time">1 minute ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Wind Speed Update</div>
+                            <div class="activity-description">Wind speed increased to 18 km/h, direction: NE</div>
+                            <div class="activity-time">3 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-title">Humidity Drop</div>
+                            <div class="activity-description">Relative humidity dropped to 22% in monitoring zone</div>
+                            <div class="activity-time">5 minutes ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Alerts -->
+            <div class="regional-summary">
+                <div class="section-title">
+                    <h3>Active Alerts</h3>
+                    <div class="live-indicator">
+                        <span class="status-dot warning"></span>
+                        <span>7 Active</span>
+                    </div>
+                </div>
+                <div class="regional-grid">
+                    <div class="region-card very-high-risk">
+                        <div class="region-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="region-info">
+                            <div class="region-header">
+                                <div class="region-name">Critical Alert</div>
+                                <div class="risk-badge very-high">Urgent</div>
+                            </div>
+                            <div class="region-stats">
+                                <span>Extreme fire danger conditions detected in Nainital District</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-card high-risk">
+                        <div class="region-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="region-info">
+                            <div class="region-header">
+                                <div class="region-name">Fire Detection</div>
+                                <div class="risk-badge high">High</div>
+                            </div>
+                            <div class="region-stats">
+                                <span>Hotspot detected via satellite imagery in Almora region</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-generation">
+            <div class="panel-header">
+                <h3>Monitoring Controls</h3>
+                <p>Configure alerts and monitoring parameters</p>
+            </div>
+            <div class="report-options">
+                <button class="action-btn primary">
+                    <i class="fas fa-cog"></i>
+                    Configure Alerts
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-eye"></i>
+                    View All Sensors
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-history"></i>
+                    Alert History
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-download"></i>
+                    Export Data
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
